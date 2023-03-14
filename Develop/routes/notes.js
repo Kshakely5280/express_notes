@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require('uuid');
 
 // app.get('/api/notes')
 router.get('/notes', (req, res) => {
-    const noteId = req.params.note_id;
+    const noteId = req.params.id;
     readFromFile('./db/db.json')
       .then((data) => JSON.parse(data))
       .then((json) => {
@@ -18,7 +18,7 @@ router.get('/notes', (req, res) => {
   });
 
 router.get('/notes/:note_id', (req, res) => {
-    const noteId = req.params.note_id;
+    const noteId = req.params.id;
     readFromFile('./db/db.json')
       .then((data) => JSON.parse(data))
       .then((json) => {
@@ -41,7 +41,7 @@ router.post('/notes', (req, res) => {
       const newNote = {
         title,
         text,
-        note_id: uuidv4(),
+        id: uuidv4(),
       };
   
       readAndAppend(newNote, './db/db.json');
@@ -55,7 +55,7 @@ router.post('/notes', (req, res) => {
 
 // DELETE Route for a specific note
 router.delete('/notes/:note_id', (req, res) => {
-    const noteId = req.params.note_id;
+    const noteId = req.params.id;
     readFromFile('./db/db.json')
       .then((data) => JSON.parse(data))
       .then((json) => {
