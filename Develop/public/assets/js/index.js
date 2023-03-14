@@ -83,7 +83,7 @@ const handleNoteDelete = (e) => {
   e.stopPropagation();
 
   const note = e.target;
-  const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
+  const noteId = JSON.parse(note.parentElement.getAttribute('data-note'));
 
   if (activeNote.id === noteId) {
     activeNote = {};
@@ -122,7 +122,7 @@ const renderNoteList = async (notes) => {
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
   }
-
+  console.log(jsonNotes)
   let noteListItems = [];
 
   // Returns HTML element with or without a delete button
@@ -160,7 +160,7 @@ const renderNoteList = async (notes) => {
 
   jsonNotes.forEach((note) => {
     const li = createLi(note.title);
-    li.dataset.note = JSON.stringify(note);
+    li.dataset.note = JSON.stringify(note.note_id);
 
     noteListItems.push(li);
   });
