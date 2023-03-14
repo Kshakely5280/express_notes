@@ -98,8 +98,10 @@ const handleNoteDelete = (e) => {
 // Sets the activeNote and displays it
 const handleNoteView = (e) => {
   e.preventDefault();
+  console.log('testing handle note view')
   activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
   renderActiveNote();
+  console.log('we are firing here')
 };
 
 // Sets the activeNote to and empty object and allows the user to enter a new note
@@ -155,7 +157,7 @@ const renderNoteList = async (notes) => {
   };
 
   if (jsonNotes.length === 0) {
-    noteListItems.push(createLi('No saved Notes', false));
+    noteListItems.push(createLi('No saved Notes', true));
   }
 
   jsonNotes.forEach((note) => {

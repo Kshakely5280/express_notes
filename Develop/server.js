@@ -23,3 +23,5 @@ app.get("/notes", (req, res) =>
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
 );
+
+// please note if you have loom chrome extension added you will see this error "blur.js:42 Uncaught (in promise) Error: Minified React error #321; visit https://reactjs.org/docs/error-decoder.html?invariant=321" this is OKAY and can be ignored.
